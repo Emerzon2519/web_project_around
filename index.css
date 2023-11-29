@@ -122,3 +122,23 @@
 .main__icono {
     width: 20.76px;
 }
+
+@media screen and (min-width:1280px) {
+    .main__container {
+        width: 880px;
+        height: 744px;
+        /* background-color: red; */
+        flex-direction: row;
+        margin-left: auto;
+        margin-right: auto;
+        align-items: normal;
+        justify-content: center;
+        flex-wrap: wrap;
+        column-gap: 17px;
+    }
+
+    .main__element {
+        width: 282px;
+        height: 361px;
+    }
+}
