@@ -83,6 +83,67 @@
     height: 16px;
 }
 
+@media screen and (min-width: 1280px) {
+
+    .header__container-logo {   
+        width: 880px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .header__logo {
+        width: 173px;
+    }
+
+    .header__profile {
+        width: 880px;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        position: relative;
+
+    }
+
+    .header__image {
+        margin-right: 30px;
+    }
+
+    .header__profile-info {
+        width: 415px;
+        height: 77px;
+        margin-bottom: 100px;
+        margin-right: 200px;
+    }
+
+    .header__title {
+        width: 373px;
+        height: 39px;
+        font-size: 42px;
+        line-height: 48px;
+    }
+
+    .header__icono{
+        align-self: center;
+        margin-top: 35px;
+        width: 24px;
+        height: 24px;
+    }
+    
+    .header__subtitle {
+        position: absolute;
+        top: 80px;
+        left: 150px;
+        font-size: 18px;
+        line-height: 21.78px;
+    }
+
+    .header__container-button {
+        width: 150px;
+    }
+}
+
 .main__container {
     display: flex;
     flex-direction: column;
@@ -124,27 +185,45 @@
     width: 20.76px;
 }
 
+@media screen and (min-width:1280px) {
+    .main__container {
+        width: 880px;
+        height: 744px;
+        /* background-color: red; */
+        flex-direction: row;
+        margin-left: auto;
+        margin-right: auto;
+        align-items: normal;
+        justify-content: center;
+        flex-wrap: wrap;
+        column-gap: 17px;
+    }
+
+    .main__element {
+        width: 282px;
+        height: 361px;
+    }
+}
+
 .footer {
     width: 282px;
     margin-top: 48px;
     color: #545454;
-    margin-left: 19px;
-    margin-right: 19px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .text__footer {
     font-weight: 400;
     font-size: 14px;
     line-height: 16.94px;
+    padding-bottom: 36px;
 }
 
-@media screen and (min-width:1280px) {
+@media screen and (min-width:1280px){
     .footer {
-        width: 318px;
+        width: 880px;
         margin-top: 66px;
-        margin-left: 200px;
-        margin-right: 762px;
-       
     }
 
     .text__footer {
