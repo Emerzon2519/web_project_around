@@ -1,4 +1,3 @@
-let page = document.querySelector(".page");
 let popup = document.querySelector(".popup");
 let edit = document.querySelector(".header__icono");
 let hidden = document.querySelector(".close");
@@ -11,9 +10,7 @@ let inputWork = document.querySelector(".popup__input-work");
 
 function open() {
 
-    popup.style.display = "block";
-    hidden.style.display = "block";
-    // page.style.opacity = "0.9";
+    popup.classList.toggle("popup_show");
     
     titleCapture = title.textContent;
     inputName.value = titleCapture;
@@ -23,14 +20,12 @@ function open() {
 }
  
 function closee() {
-    popup.style.display = "none";
-    hidden.style.display = "none";
+    popup.classList.remove("popup_show");
 }
 
 function save(){
 
-    popup.style.display = "none";
-    hidden.style.display = "none";
+    popup.classList.remove("popup_show");
 
     nameCapture = inputName.value
     title.textContent = nameCapture
