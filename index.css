@@ -9,13 +9,7 @@
 .page {
     background-color: #000000;
     min-width: 320px;
-    color: white;
 }
-
-.page:hover {
-    /* background-color: rgba(100,200,100,0.5); */
-}
-
 
 
 .header__container-logo {   
@@ -244,8 +238,7 @@
         font-size: 18px;
         line-height: 21.78px;
         padding-bottom: 60px;
-    }
-    
+    }   
 }
 
 /* .popup {
@@ -336,14 +329,30 @@
     .popup {
         width: 430px;
         height: 330px;
-        position: fixed;
-        top: 50%;
-        left: 50%;
+    }
+
+    .popup__overlay {
+        opacity: .7;
+        background-color: black;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    
+    .popup_show {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
     }
     
     
     .popup__container {
         padding: 36px;
+        z-index: 1;
     }
     
     
@@ -379,11 +388,10 @@
         top: 20%;
         left: 64%;
     }
-}
- */
+} */
 
 
- @media screen and (min-width:1280px) {
+@media screen and (min-width:1280px) {
     .popup {
         display: none;
     }
@@ -407,9 +415,8 @@
     
     .popup__content {
         width: 430px;
-        /* height: 120px; */
+        height: 120px;
         background-color: white;
         z-index: 1;
     }
- }
- 
+}
