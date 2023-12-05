@@ -1,6 +1,6 @@
 const popup = document.querySelector(".popup");
 const edit = document.querySelector(".header__icono");
-const hidden = document.querySelector(".close");
+const hidden = document.querySelector(".popup__close");
 const title = document.querySelector(".header__title");
 const subtitle = document.querySelector(".header__subtitle");
 const saveInfo = document.querySelector(".popup__button-container");

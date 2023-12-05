@@ -1,0 +1,124 @@
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.popup__overlay {
+    opacity: .7;
+    background-color: black;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+.popup_show {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.popup__container {
+    border-radius: 10px;
+    width: 282px;
+    background-color: white;
+    padding: 22px;
+    z-index: 1;
+}
+
+.popup__title {
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 21.78px;
+    margin-bottom: 75px;
+}
+
+.popup__input {
+    display: block;
+    width: 238px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.94px;
+    margin-bottom: 30px;
+    padding-bottom: 13px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+.popup__button-container{
+    margin-top: 15px;
+    width: 238px;
+    height: 46px;
+    background-color: black;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.popup__button-container:hover {
+    opacity: .8;
+}
+
+.popup__button {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.94px;
+    color: white;
+}
+
+.popup__close {
+    width: 26px;
+    height: 26px;
+    color: white;
+    position: absolute;
+    top: calc(50% - 190px);
+    right: calc(50% - 165px);
+    cursor: pointer;
+}
+
+.popup__close:hover {
+    opacity: .5;
+}
+
+@media screen and (min-width:1280px) {
+    
+    .popup__container {
+        width: 430px;
+        padding: 36px;
+    }
+
+    .popup__title {
+        font-size: 24px;
+        line-height: 29.05px;
+        margin-bottom: 54px;
+    }
+    
+    .popup__input {
+        width: 358px;
+        line-height: 16.94px;
+        margin-bottom: 29.74px;
+        padding-bottom: 13.26px;
+    }
+    
+    .popup__button-container{
+        margin-top: 18.26px;
+        width: 358px;
+        height: 50.15px;
+    }
+    
+    .popup__button {
+        font-size: 18px;
+        line-height: 21.78px;
+    }
+
+    .popup__close {
+        width: 40px;
+        height: 40px;
+        top: calc(50% - 226px);
+        right: calc(50% - 250px);
+    }
+}

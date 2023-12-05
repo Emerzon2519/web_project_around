@@ -1,0 +1,144 @@
+.header__container-logo {   
+    width: 320px;
+    border-bottom: 1px solid #545454;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header__logo {
+    margin-top: 28px;
+    margin-left: 27px;
+    margin-bottom: 32px;
+    width: 126px;
+}
+
+.header__profile {
+    margin-top: 42px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header__image {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 30px;
+}
+
+
+.header__profile-info {
+    display: flex;
+    justify-content: center;
+}
+
+
+.header__title {
+    color: white;
+    margin-bottom: 14px;
+    margin-right: 10px;
+    width: 196px;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 26.63px;
+}
+
+.header__icono {
+    width: 18px;
+    height: 18px;
+    align-self: center;
+    cursor: pointer;
+}
+
+.header__icono:hover {
+    opacity: .5;
+}
+
+.header__subtitle {
+    color: white;
+    margin-bottom: 36px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.94px;
+}
+
+.header__container-button {
+    width: 282px;
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.header__container-button:hover {
+    opacity: .5;
+}
+
+.header__button {
+    width: 16px;
+    height: 16px;
+}
+
+@media screen and (min-width: 1280px) {
+
+    .header__container-logo {   
+        width: 880px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .header__logo {
+        width: 173px;
+    }
+
+    .header__profile {
+        width: 880px;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        position: relative;
+
+    }
+
+    .header__image {
+        margin-right: 30px;
+    }
+
+    .header__profile-info {
+        width: 415px;
+        height: 77px;
+        margin-bottom: 100px;
+        margin-right: 200px;
+    }
+
+    .header__title {
+        width: 373px;
+        height: 39px;
+        font-size: 42px;
+        line-height: 48px;
+    }
+
+    .header__icono{
+        align-self: center;
+        margin-top: 35px;
+        width: 24px;
+        height: 24px;
+    }
+    
+    .header__subtitle {
+        position: absolute;
+        top: 80px;
+        left: 150px;
+        font-size: 18px;
+        line-height: 21.78px;
+    }
+
+    .header__container-button {
+        width: 150px;
+    }
+}
