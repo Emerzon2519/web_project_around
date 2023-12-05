@@ -21,5 +21,5 @@ El proyecto utiliza las siguientes tecnologías y técnicas:
 
 
 ## CONTACTO
-Puedes contactarme a través de mi correo electrónico: the_emerzon1999@hotmail.com y ver la pagina en GitHub pages aquí 
+Puedes contactarme a través de mi correo electrónico: the_emerzon1999@hotmail.com y ver la pagina en GitHub pages aquí https://emerzon2519.github.io/web_project_around/
 
