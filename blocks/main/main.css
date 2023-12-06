@@ -18,9 +18,7 @@
     width: 282px;
     height: 361px;
     background-color: white;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+    
 }
 
 .main__info {
@@ -36,6 +34,9 @@
     font-size: 24px;
     line-height: 29.05px;
     color: black;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .main__icono {
