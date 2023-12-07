@@ -23,10 +23,12 @@
 
 .main__info {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     width: 282px;
     height: 79px;
+    padding-left: 21px;
+    padding-right: 15px;
 }
 
 .main__title {
