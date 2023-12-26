@@ -18,7 +18,7 @@
   position: absolute;
   width: 240px;
   height: 299px;
-  max-width: 75vw; 
+  max-width: 75vw;
   max-height: 75vh; 
 }
 
@@ -35,12 +35,12 @@
   position: absolute;
   top: calc(50% - 185px);
   right: calc(50% - 155px);
-  font-size: 30px; 
+  font-size: 30px;
   cursor: pointer;
 }
 
 .modal__close:hover{
-  opacity: .5
+  opacity: .5;
 }
 
 .modal__image-name {
