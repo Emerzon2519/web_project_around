@@ -95,8 +95,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const workCapture = inputWork.value
             subtitle.textContent = workCapture
         } else {
-            const mainContainer = document.querySelector('.main__container');   
-            const cardTemplate = document.querySelector('.template-card');
+            // const mainContainer = document.querySelector('.main__container');   
+            // const cardTemplate = document.querySelector('.template-card');
             const newCard = cardTemplate.content.cloneNode(true);
             const title = newCard.querySelector('.main__title');
             const image = newCard.querySelector('.main__images');
