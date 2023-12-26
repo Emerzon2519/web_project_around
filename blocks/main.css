@@ -8,6 +8,7 @@
     width: 282px;
     height: 282px;
     border-radius: 10px 10px 0px 0px;
+    cursor: pointer;
 }
 
 .main__element {
@@ -66,6 +67,19 @@
     .main__element {
         width: 282px;
         height: 361px;
+        position: relative;
+    }
+
+    .main__icon-eliminar {
+        width: 18px;
+        cursor: pointer;
+        position: absolute;
+        left: 250px;
+        top: 10px;
+    }
+
+    .main__icon-eliminar:hover {
+        opacity: 60%;
     }
 
 }

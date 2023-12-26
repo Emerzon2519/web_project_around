@@ -27,60 +27,23 @@
         
         <main class="main">
             <section class="main__container">
-                <div class="main__element">
-                    <img class="main__images" src="./images/paisaje-bosque.jpg" alt="paisaje de un bosque">
-                    <div class="main__info">
-                        <h2 class="main__title">Yosemite Valley</h2>
-                        <img class="main__icono" src="./images/icono-corazon.svg" alt="icono de corazon">
+                <template class="template-card">
+                    <div class="main__element">
+                        <img class="main__images" src="./images/paisaje-bosque.jpg" alt="paisaje de un bosque">
+                        <div class="main__info">
+                            <h2 class="main__title">Yosemite Valley</h2>
+                            <img class="main__icono" src="./images/icono-corazon.svg" alt="icono de corazon">
+                        </div>
+                        <img class="main__icon-eliminar" src="./images/Icono-eliminar.png" alt="icono de eliminar">
                     </div>
-                </div>
-
-                <div class="main__element">
-                    <img class="main__images" src="./images/paisaje-hielo.png" alt="paisaje de hielo">
-                    <div class="main__info">
-                        <h2 class="main__title">Lake Louise</h2>
-                        <img class="main__icono" src="./images/icono-corazon.svg" alt="icono de corazon">
-                    </div>
-                </div>
-
-                <div class="main__element">
-                    <img class="main__images" src="./images/paisaje-desierto.png" alt="paisaje de un desierto">
-                    <div class="main__info">
-                        <h2 class="main__title">Bald Mountains</h2>
-                        <img class="main__icono" src="./images/icono-corazon.svg" alt="icono de corazon">
-                    </div>
-                </div>
-
-                <div class="main__element">
-                    <img class="main__images" src="./images/paisaje-noche.png" alt="paisaje de noche">
-                    <div class="main__info">
-                        <h2 class="main__title">Latemar</h2>
-                        <img class="main__icono" src="./images/icono-corazon.svg" alt="icono de corazon">
-                    </div>
-                </div>
-
-                <div class="main__element">
-                    <img class="main__images" src="./images/paisaje-laguna.png" alt="paisaje de laguna">
-                    <div class="main__info">
-                        <h2 class="main__title">Vanoise National Park</h2>
-                        <img class="main__icono" src="./images/icono-corazon.svg" alt="icono de corazon">
-                    </div>
-                </div>
-
-                <div class="main__element">
-                    <img class="main__images" src="./images/paisaje-montaña.png" alt="paisaje de montaña">
-                    <div class="main__info">
-                        <h2 class="main__title">Lago di Braies</h2>
-                        <img class="main__icono" src="./images/icono-corazon.svg" alt="icono de corazon">
-                    </div>
-                </div>
+                </template>
             </section>
         </main>
         <footer class="footer">
             <p class="footer__text">© 2023 Around The U.S.</p>          
         </footer>
 
-        <div class="popup ">
+        <div class="popup">
             <div class="popup__overlay"></div>
             <div class="popup__container">
                 <h3 class="popup__title">Edit Profile</h3>
@@ -93,6 +56,12 @@
                 <img class="popup__close" src="./images/botonX.png" alt="Boton de cerrar">
             </div>
         </div>
+
+        <div class="modal">
+            <img class="modal__close" src="./images/botonX.png" alt="Icono de cerrar">
+            <img class="modal__content">
+            <p class="modal__image-name"></p>
+          </div>
 
     </div>
         <script src="./index.js"></script>
