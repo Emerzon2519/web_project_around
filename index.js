@@ -69,23 +69,25 @@ document.addEventListener('DOMContentLoaded', function () {
     function open() {
         isEditMode = true;
         popup.classList.toggle("popup_show");
-        
         const titleCapture = titleHeader.textContent;
         inputName.value = titleCapture;
         
         const subtitleCapture = subtitle.textContent;
         inputWork.value = subtitleCapture;
+        twoTitle.textContent = originalTwoTitle;
     }
     
     function closee() {
         popup.classList.remove("popup_show");
         
-        twoTitle.textContent = originalTwoTitle;
-        inputName.value = "";
-        inputWork.value = "";
-        inputName.style.color = "initial";
-        inputWork.style.color = "initial";
+            // inputName.value = "";
+            // inputWork.value = "";
+            // inputName.style.color = "initial";
+            // inputWork.style.color = "initial";
+        
     }
+
+
     
     function save(){
         if(isEditMode) {
@@ -116,71 +118,73 @@ document.addEventListener('DOMContentLoaded', function () {
         isEditMode = false;
          popup.classList.toggle("popup_show");
          
-         twoTitle.textContent = "New Place";
          inputName.value = "";
+         twoTitle.textContent = "New Place";
          inputWork.value = "";
          inputName.placeholder = "Title";
          inputWork.placeholder = "Image URL";
+
      }
         
-        
-    function like(event) {
-        if (event.target.src.endsWith("corazon-negro.png")) {
-            event.target.src = "./images/icono-corazon.svg";
-        } else {
-            event.target.src = "./images/corazon-negro.png";
-        }
-    }
-
-    iconHearts.forEach(function(iconHeart) {
-            iconHeart.addEventListener("click", like);
-    });
-
-
-    function eliminate(event) {
-        const card = event.target.closest(".main__element");
-        if(card){
-            card.remove();
-        }
-    }
-
-    iconsEliminar.forEach(function(iconEliminar){
-        iconEliminar.addEventListener("click", eliminate);
-    })
-
-    const modal = document.querySelector(".modal");
-    const modalImg = document.querySelector(".modal__content");
-    const images = document.querySelectorAll('.main__images');
-    const span = document.querySelector(".modal__close");
-
-    function openModal() {
-        modal.classList.toggle("modal_show");
-        modalImg.src = this.src;
-
-        const imageName = this.alt;
-        
-
-        const imageNameElement = document.querySelector(".modal__image-name");
-        imageNameElement.textContent = imageName;
-    }
-
-    function closeModal() { 
-        modal.classList.remove("modal_show");
-    }
-
-    images.forEach(function(img) {
-        img.addEventListener("click", openModal);
-    });
-
-
-
     
-    span.addEventListener("click", closeModal);
-    buttonAdd.addEventListener("click", addCard);   
-    edit.addEventListener("click",open); 
-    hidden.addEventListener("click",closee);
-    saveInfo.addEventListener("click",save);
-});
+        function like(event) {
+            if (event.target.src.endsWith("corazon-negro.svg")) {
+                event.target.src = "./images/icono-corazon.svg";
+            } else {
+                event.target.src = "./images/corazon-negro.svg";
+            }
+        }
+    
+        iconHearts.forEach(function(iconHeart) {
+                iconHeart.addEventListener("click", like);
+        });
+    
+    
+        function eliminate(event) {
+            const card = event.target.closest(".main__element");
+            if(card){
+                card.remove();
+            }
+        }
+    
+        iconsEliminar.forEach(function(iconEliminar){
+            iconEliminar.addEventListener("click", eliminate);
+        })
+    
+        const modal = document.querySelector(".modal");
+        const modalImg = document.querySelector(".modal__content");
+        const images = document.querySelectorAll('.main__images');
+        const span = document.querySelector(".modal__close");
+    
+        function openModal() {
+            modal.classList.toggle("modal_show");
+            modalImg.src = this.src;
+    
+            const imageName = this.alt;
+            
+    
+            const imageNameElement = document.querySelector(".modal__image-name");
+            imageNameElement.textContent = imageName;
+        }
+    
+        function closeModal() { 
+            modal.classList.remove("modal_show");
+        }
+    
+        images.forEach(function(img) {
+            img.addEventListener("click", openModal);
+        });
+    
+    
+        span.addEventListener("click", closeModal);
+        buttonAdd.addEventListener("click", addCard);   
+        edit.addEventListener("click",open); 
+        hidden.addEventListener("click",closee);
+        saveInfo.addEventListener("click",save);
+    }
+    
+    
+);
 
 
 
