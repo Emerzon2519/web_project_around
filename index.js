@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // titleCard.textContent = inputName.value;
             // imageCard.src = inputWork.value;
             // imageCard.alt = inputName.value;
-            createCard(inputName.value,inputWork.value);
+            // createCard(inputName.value,inputWork.value);
     
             mainContainer.prepend(createCard(inputName.value,inputWork.value));
         }
@@ -132,9 +132,9 @@ document.addEventListener('DOMContentLoaded', function () {
         isEditMode = false;
          popup.classList.toggle("popup_show");
          
-         inputName.value = "";
+        //  inputName.value = "";
          twoTitle.textContent = "New Place";
-         inputWork.value = "";
+        //  inputWork.value = "";
          inputName.placeholder = "Title";
          inputWork.placeholder = "Image URL";
 
@@ -143,18 +143,16 @@ document.addEventListener('DOMContentLoaded', function () {
      inputName.addEventListener('keypress', function(event) {
         if (event.key === 'Enter') {
           
-        //   addCard();
+          addCard();
           save();
-          mainContainer.prepend(createCard(inputName.value,inputWork.value));
         }
       });
       
       inputWork.addEventListener('keypress', function(event) {
         if (event.key === 'Enter') {
           
-        //   addCard();
+          addCard();
           save();
-          mainContainer.prepend(createCard(inputName.value,inputWork.value));
         }
       });
         
