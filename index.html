@@ -40,19 +40,27 @@
             </section>
         </main>
         <footer class="footer">
-            <p class="footer__text">© 2023 Around The U.S.</p>          
+            <p class="footer__text">© 2023 Around The U.S.</p>   
         </footer>
 
         <div class="popup">
             <div class="popup__overlay"></div>
             <div class="popup__container">
                 <h3 class="popup__title">Edit Profile</h3>
-                <input class="popup__input popup__input-name" type="text" name="appellative" id="appellative" > 
-                <input class="popup__input popup__input-work" type="text" name="work" id="work" >
-
-                <button class="popup__button-container" type="button">
-                   <span class="popup__button">Save</span> 
-                </button>
+                <form action="" class="popup__form" novalidate>
+                    
+                        <input class="popup__input popup__input-name popup__input_type_error" type="text" name="appellative" id="appellative"
+                        minlength="2" maxlength="40" required>
+                        <p class="popup__error popup__error_visible_appellative"></p> 
+                        <input class="popup__input popup__input-work popup__input_type_error" required type="text" name="work" id="work"
+                        minlength="2" maxlength="200" required pattern="https?://.+">
+                        <p class="popup__error popup__error_visible_work"></p> 
+                    
+                    <button class="popup__button-container" type="button" id="saveButton">
+                        <span class="popup__button popup__button_disabled">Save</span> 
+                    </button>
+                </form>
+                
                 <img class="popup__close" src="./images/botonX.png" alt="Boton de cerrar">
             </div>
         </div>

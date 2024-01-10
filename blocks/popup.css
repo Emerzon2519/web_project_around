@@ -110,7 +110,7 @@
     .popup__input {
         width: 358px;
         line-height: 16.94px;
-        margin-bottom: 29.74px;
+        margin-bottom: 29.74px; 
         padding-bottom: 13.26px;
     }
     
@@ -125,6 +125,14 @@
         line-height: 21.78px;
     }
 
+    .popup´__button:disabled {
+        opacity: 0.5;
+    } 
+
+    .popup__button-container:disabled {
+        opacity: 0.5;
+    }
+
     .popup__close {
         width: 40px;
         height: 40px;
@@ -132,4 +140,25 @@
         right: calc(50% - 250px);
     }
 
+    .popup__error {
+        color: red;
+        font-size: 12px;
+        margin-top: 6px;
+        /* position: absolute;
+        top: 10px; */
+    }
+
+
+    
+      
+    .popup__input:invalid {
+        border-bottom: 2px solid red;
+        margin-bottom: 0px; 
+        padding-bottom: 0px;
+      }
+    
+      .popup__error_visible {
+        color: red;
+        font-size: 12px;
+      }
 }

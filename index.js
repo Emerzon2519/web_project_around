@@ -79,6 +79,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const subtitleCapture = subtitle.textContent;
     inputWork.value = subtitleCapture;
     twoTitle.textContent = originalTwoTitle;
+
+    inputWork.removeAttribute('pattern');
   }
         
   function closee() {
@@ -109,6 +111,15 @@ document.addEventListener('DOMContentLoaded', function () {
     inputWork.value = "";
     inputName.placeholder = "Title";
     inputWork.placeholder = "Image URL";
+    inputName.setAttribute('maxlength', '30');
+    inputWork.removeAttribute("minlength");
+    inputWork.removeAttribute("maxlength");
+    isValidURL(inputWork.value);
+  }
+
+  function isValidURL(url) {
+    const pattern = new RegExp('https?://.+');
+    return pattern.test(url);
   }
 
   inputName.addEventListener('keypress', function(event) {
@@ -181,3 +192,41 @@ document.addEventListener('DOMContentLoaded', function () {
   }  
 );
 
+
+
+// habilitar la validación llamando a enableValidation()
+// pasar todas las configuraciones en la llamada
+
+// enableValidation({
+//   formSelector: ".popup__form",
+//   inputSelector: ".popup__input",
+//   submitButtonSelector: ".popup__button",
+//   inactiveButtonClass: "popup__button_disabled",
+//   inputErrorClass: "popup__input_type_error",
+//   errorClass: "popup__error_visible"
+// });
+
+const form = document.querySelector(".popup__form");
+const saveInfo = document.querySelector(".popup__button-container");
+
+form.addEventListener("input", (event) => {
+  const target = event.target;
+  const errorNode = form.querySelector(`.popup__error_visible_${target.name}`);
+  if(target.validity.valid){
+    target.classList.remove("popup__error");
+    errorNode.textContent = "";
+  } else {
+    target.classList.add("popup__error");
+    errorNode.textContent = target.validationMessage;
+  }
+
+  saveInfo.disabled = !isValid(form);
+})
+
+
+function isValid(form){
+  const inputList = Array.from(form.querySelectorAll(".popup__input"));
+  return inputList.every((item) => {
+    return item.validity.valid;
+  })
+}
