@@ -80,11 +80,14 @@ document.addEventListener('DOMContentLoaded', function () {
     inputWork.value = subtitleCapture;
     twoTitle.textContent = originalTwoTitle;
 
-    inputWork.removeAttribute('pattern');
+    if (!isEditMode) {
+      inputWork.removeAttribute('pattern');
+    }
   }
         
   function closee() {
-    popup.classList.remove("popup_show"); 
+    popup.classList.remove("popup_show");
+    inputWork.removeAttribute('pattern'); 
   }
 
         
@@ -96,10 +99,11 @@ document.addEventListener('DOMContentLoaded', function () {
       subtitle.textContent = workCapture
 
     } else {
-        mainContainer.prepend(createCard(inputName.value,inputWork.value));
+      inputWork.removeAttribute('pattern');   
+      mainContainer.prepend(createCard(inputName.value,inputWork.value));
     }
             
-    popup.classList.remove("popup_show");    
+    popup.classList.remove("popup_show"); 
   }
         
   function addCard() {
@@ -109,34 +113,31 @@ document.addEventListener('DOMContentLoaded', function () {
     inputName.value = "";
     twoTitle.textContent = "New Place";
     inputWork.value = "";
+    inputWork.setAttribute("pattern", "https?://.+");
     inputName.placeholder = "Title";
     inputWork.placeholder = "Image URL";
     inputName.setAttribute('maxlength', '30');
     inputWork.removeAttribute("minlength");
     inputWork.removeAttribute("maxlength");
-    isValidURL(inputWork.value);
   }
 
-  function isValidURL(url) {
-    const pattern = new RegExp('https?://.+');
-    return pattern.test(url);
-  }
+  inputName.addEventListener('keypress', handleKeyPress);
+  inputWork.addEventListener('keypress', handleKeyPress);
 
-  inputName.addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-      if(popup.classList.contains("popup_show")){
-        save();
-      } 
-    } 
-  });
-          
-  inputWork.addEventListener('keypress', function(event) {
-    if (event.key === 'Enter') {
-      if(popup.classList.contains("popup_show")){
-        save();
-      }
+  function handleKeyPress(event) {
+    if (event.key === 'Enter' && popup.classList.contains("popup_show") && areInputsValid()) {
+      save();
     }
-  });
+  }
+
+  function areInputsValid() {
+    return isValidInput(inputName) && isValidInput(inputWork);
+  }
+
+  function isValidInput(input) {
+    return input.validity.valid;
+  }
+
             
         
   function like(event) {
@@ -189,44 +190,42 @@ document.addEventListener('DOMContentLoaded', function () {
   edit.addEventListener("click",open); 
   hidden.addEventListener("click",closee);
   saveInfo.addEventListener("click",save);
-  }  
-);
+ 
 
 
-
-// habilitar la validación llamando a enableValidation()
-// pasar todas las configuraciones en la llamada
-
-// enableValidation({
-//   formSelector: ".popup__form",
-//   inputSelector: ".popup__input",
-//   submitButtonSelector: ".popup__button",
-//   inactiveButtonClass: "popup__button_disabled",
-//   inputErrorClass: "popup__input_type_error",
-//   errorClass: "popup__error_visible"
-// });
-
-const form = document.querySelector(".popup__form");
-const saveInfo = document.querySelector(".popup__button-container");
-
-form.addEventListener("input", (event) => {
-  const target = event.target;
-  const errorNode = form.querySelector(`.popup__error_visible_${target.name}`);
-  if(target.validity.valid){
-    target.classList.remove("popup__error");
-    errorNode.textContent = "";
-  } else {
-    target.classList.add("popup__error");
-    errorNode.textContent = target.validationMessage;
+  const popupOverlay =document.querySelector(".popup__overlay")
+  let popupShowParent;
+  
+  function closeWindows() {
+    popupOverlay.addEventListener('click', function(event) {
+      if (event.target === popupOverlay) {
+        popupShowParent = popupOverlay.closest('.popup_show');
+        popupShowParent.classList.remove('popup_show');
+      }
+    });
+  
+    modal.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        modal.classList.remove('modal_show');
+      }
+    });  
   }
+  
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      popupShowParent.classList.remove('popup_show');
+      modal.classList.remove('modal_show');
+    }
+  });
+  
+  closeWindows();
 
-  saveInfo.disabled = !isValid(form);
-})
+});
 
 
-function isValid(form){
-  const inputList = Array.from(form.querySelectorAll(".popup__input"));
-  return inputList.every((item) => {
-    return item.validity.valid;
-  })
-}
+
+
+
+
+
+
