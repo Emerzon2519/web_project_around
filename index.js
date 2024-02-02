@@ -1,189 +1,14 @@
-const popup = document.querySelector(".popup");
-const titleHeader = document.querySelector(".header__title");
-const subtitle = document.querySelector(".header__subtitle");
+import  FormValidator from "./FormValidator.js";
+import Card  from './Card.js';
+import { open, closee, save,addCard,closeModal, handleKeyPress, closeWindows} from "./utils.js";
+import {popup,inputName,inputWork,modal,span,buttonAdd,edit,hidden,saveInfo,mainContainer,cardTemplate} from "./utils.js";
 
-
-const inputName = document.querySelector(".popup__input-name");
-const inputWork = document.querySelector(".popup__input-work");
-
-
-const originalTwoTitle = popup.querySelector(".popup__title").textContent;
-const twoTitle = popup.querySelector(".popup__title");
-
-let isEditMode = false;
-
-document.addEventListener('DOMContentLoaded', function () {
-    
-  const mainContainer = document.querySelector('.main__container');   
-  const cardTemplate = document.querySelector('.template-card');
-
-        
-  const initialCards = [
-    {
-      name: "Valle de Yosemite",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg"
-    },
-    {
-      name: "Lago Louise",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg"
-    },
-    {
-      name: "Montañas Calvas",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg"
-    },
-    {
-      name: "Latemar",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg"
-    },
-    {
-      name: "Parque Nacional de la Vanoise",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg"
-    },
-    {
-      name: "Lago di Braies",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
-    }
-  ];
-
-  function createCard(title, imageLink) {
-    const newCard = cardTemplate.content.cloneNode(true);
-    const titleCard = newCard.querySelector('.main__title');
-    const imageCard = newCard.querySelector('.main__images');
-
-    titleCard.textContent = title;
-    imageCard.src = imageLink;
-    imageCard.alt = title;
-
-    return newCard;
-  }
-
-  initialCards.forEach(function (cardData) {        
-    mainContainer.appendChild(createCard(cardData.name,cardData.link));
-  });
-
-
-
-  const iconHearts = document.querySelectorAll(".main__icono");
-  const buttonAdd = document.querySelector(".header__container-button");
-  const edit = document.querySelector(".header__icono");
-  const hidden = document.querySelector(".popup__close");
-  const saveInfo = document.querySelector(".popup__button-container");
-  const iconsEliminar = document.querySelectorAll(".main__icon-eliminar");
-        
-  function open() {
-    isEditMode = true;
-    popup.classList.toggle("popup_show");
-    const titleCapture = titleHeader.textContent;
-    inputName.value = titleCapture;
-            
-    const subtitleCapture = subtitle.textContent;
-    inputWork.value = subtitleCapture;
-    twoTitle.textContent = originalTwoTitle;
-
-    if (!isEditMode) {
-      inputWork.removeAttribute('pattern');
-    }
-  }
-        
-  function closee() {
-    popup.classList.remove("popup_show");
-    inputWork.removeAttribute('pattern'); 
-  }
-
-        
-  function save(){
-    if(isEditMode) {
-      const nameCapture = inputName.value
-      titleHeader.textContent = nameCapture         
-      const workCapture = inputWork.value
-      subtitle.textContent = workCapture
-
-    } else {
-      inputWork.removeAttribute('pattern');   
-      mainContainer.prepend(createCard(inputName.value,inputWork.value));
-    }
-            
-    popup.classList.remove("popup_show"); 
-  }
-        
-  function addCard() {
-    isEditMode = false;
-    popup.classList.toggle("popup_show");
-            
-    inputName.value = "";
-    twoTitle.textContent = "New Place";
-    inputWork.value = "";
-    inputWork.setAttribute("pattern", "https?://.+");
-    inputName.placeholder = "Title";
-    inputWork.placeholder = "Image URL";
-    inputName.setAttribute('maxlength', '30');
-    inputWork.removeAttribute("minlength");
-    inputWork.removeAttribute("maxlength");
-  }
+ 
 
   inputName.addEventListener('keypress', handleKeyPress);
   inputWork.addEventListener('keypress', handleKeyPress);
 
-  function handleKeyPress(event) {
-    if (event.key === 'Enter' && popup.classList.contains("popup_show") && areInputsValid()) {
-      save();
-    }
-  }
-
-  function areInputsValid() {
-    return isValidInput(inputName) && isValidInput(inputWork);
-  }
-
-  function isValidInput(input) {
-    return input.validity.valid;
-  }
-
-            
-        
-  function like(event) {
-    if (event.target.src.endsWith("corazon-negro.svg")) {
-      event.target.src = "./images/icono-corazon.svg";
-      } else {
-        event.target.src = "./images/corazon-negro.svg";
-      }
-  }
-        
-  iconHearts.forEach(function(iconHeart) {
-    iconHeart.addEventListener("click", like);
-  });
-        
-        
-  function eliminate(event) {
-    const card = event.target.closest(".main__element");
-    if(card){
-      card.remove();
-    }
-  }
-        
-  iconsEliminar.forEach(function(iconEliminar){
-    iconEliminar.addEventListener("click", eliminate);
-  })
-        
-  const modal = document.querySelector(".modal");
-  const modalImg = document.querySelector(".modal__content");
-  const images = document.querySelectorAll('.main__images');
-  const span = document.querySelector(".modal__close");
-        
-  function openModal() {
-    modal.classList.toggle("modal_show");
-    modalImg.src = this.src;    
-    const imageName = this.alt;    
-    const imageNameElement = document.querySelector(".modal__image-name");
-    imageNameElement.textContent = imageName;
-  }
-        
-  function closeModal() { 
-    modal.classList.remove("modal_show");
-  }
-        
-  images.forEach(function(img) {
-    img.addEventListener("click", openModal);
-  });
+ 
 
   span.addEventListener("click", closeModal);
   buttonAdd.addEventListener("click", addCard);   
@@ -192,40 +17,57 @@ document.addEventListener('DOMContentLoaded', function () {
   saveInfo.addEventListener("click",save);
  
 
-
-  const popupOverlay =document.querySelector(".popup__overlay")
-  let popupShowParent;
-  
-  function closeWindows() {
-    popupOverlay.addEventListener('click', function(event) {
-      if (event.target === popupOverlay) {
-        popupShowParent = popupOverlay.closest('.popup_show');
-        popupShowParent.classList.remove('popup_show');
-      }
-    });
-  
-    modal.addEventListener('click', function(event) {
-      if (event.target === modal) {
-        modal.classList.remove('modal_show');
-      }
-    });  
-  }
-  
   document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
-      popupShowParent.classList.remove('popup_show');
+      
+      popup.classList.remove("popup_show");
       modal.classList.remove('modal_show');
     }
   });
   
   closeWindows();
 
-});
+    const initialCards = [
+      {
+        name: "Valle de Yosemite",
+        link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg"
+      },
+      {
+        name: "Lago Louise",
+        link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg"
+      },
+      {
+        name: "Montañas Calvas",
+        link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg"
+      },
+      {
+        name: "Latemar",
+        link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg"
+      },
+      {
+        name: "Parque Nacional de la Vanoise",
+        link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg"
+      },
+      {
+        name: "Lago di Braies",
+        link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
+      }
+    ];
+  
+    initialCards.forEach(cardData => {
+      const newCard = new Card(cardData.name, cardData.link, cardTemplate);
+      mainContainer.appendChild(newCard.generateCard());
+    });
+  
+  
 
-
-
-
-
-
-
-
+     const formValidator = new FormValidator({
+      formSelector: ".popup__form",
+      inputSelector: ".popup__input",
+      submitButtonSelector: ".popup__button-container",
+      inactiveButtonClass: "popup__button_disabled",
+      inputErrorClass: "popup__error",
+      errorClass: "popup__error_visible"
+    }, document.querySelector(".popup__form"));
+    
+    formValidator.enableValidation();
