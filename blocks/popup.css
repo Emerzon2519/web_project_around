@@ -1,5 +1,4 @@
 .popup {
-    /* display: none; */
     visibility: hidden;
     opacity: 0;
     transition: visibility 0.5s, opacity 0.5s linear;
@@ -23,10 +22,6 @@
 }
 
 .popup_show {
-    /* display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center; */
     visibility: visible;
     opacity: 1;
     
@@ -58,6 +53,7 @@
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
+    color: black;
 }
 
 .popup__button-container{
@@ -109,7 +105,6 @@
 }
 
 .popup__input:invalid {
-    border-bottom: 2px solid red;
     margin-bottom: 0px;
     padding-bottom: 0px;
   }
